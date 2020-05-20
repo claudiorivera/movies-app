@@ -6,12 +6,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import { Link } from "@reach/router";
 
 const useStyles = makeStyles((theme) => ({
-  // title: {
-  //   display: "none",
-  //   [theme.breakpoints.up("sm")]: {
-  //     display: "block",
-  //   },
-  // },
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -56,7 +50,7 @@ export const MainAppBar = () => {
   return (
     <AppBar position="sticky">
       <Toolbar>
-        <Typography className={classes.title} variant="h6" noWrap>
+        <Typography variant="h6" noWrap>
           <Link style={{ textDecoration: "none", color: "white" }} to="/">
             Movies App
           </Link>

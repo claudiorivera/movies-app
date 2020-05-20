@@ -108,7 +108,7 @@ export const MoviesList = () => {
     <Box display="flex" flexWrap="wrap" justifyContent="center">
       {allMovies.map((movie) => (
         <Box p={0.5} key={movie.id}>
-          <Link to={`details/${movie.id}`}>
+          <Link to={`movies/${movie.id}`}>
             <img src={movie.poster} alt={movie.title} />
           </Link>
         </Box>

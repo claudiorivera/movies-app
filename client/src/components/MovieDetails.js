@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const MovieDetails = (props) => {
-  return <div>{props.movieId}</div>;
+export const MovieDetails = ({ movieId }) => {
+  const [movieDetails] = useState({ id: movieId });
+
+  return <div>{movieDetails.id}</div>;
 };

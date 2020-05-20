@@ -10,7 +10,7 @@ export const App = () => {
       <MainAppBar />
       <Router>
         <MoviesList path="/" />
-        <MovieDetails path="/details/:movieId" />
+        <MovieDetails path="/movies/:movieId" />
       </Router>
     </>
   );
