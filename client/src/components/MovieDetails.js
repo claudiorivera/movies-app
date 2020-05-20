@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { CircularProgress } from "@material-ui/core";
 
 export const MovieDetails = ({ movieId }) => {
-  const [movieDetails] = useState({ id: movieId });
+  const [movieDetails, setMovieDetails] = useState({
+    id: movieId,
+    isFetching: false,
+  });
   useEffect(() => {
     const getMovieDetails = async (id) => {
-      console.log(id);
+      setMovieDetails({ isFetching: true });
       const response = await fetch(`/movies/${id}`, {
         headers: {
           "Content-Type": "application/json",
@@ -13,9 +17,15 @@ export const MovieDetails = ({ movieId }) => {
       });
       const movie = await response.json();
       console.log(movie);
+      setMovieDetails({ isFetching: false });
+      setMovieDetails(movie);
     };
     getMovieDetails(Number(movieId));
   }, [movieId]);
 
-  return <div>{movieDetails.id}</div>;
+  return movieDetails.isFetching ? (
+    <CircularProgress />
+  ) : (
+    <div>{movieDetails.title}</div>
+  );
 };
