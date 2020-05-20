@@ -1,14 +1,14 @@
-# PERN Template
+# movies-app
 
-Basic starter for a full stack (PERN) app.
-
-# Config
-
-Add a `.env` file with a `DB_URI=` value.
+A simple movies app, built with the PERN stack.
 
 # Install
 
 `yarn && yarn run client-install`
+
+# Config
+
+Create a `.env` file with a Postgres `DB_URI=` connection string.
 
 # Dev
 

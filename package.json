@@ -1,7 +1,7 @@
 {
-  "name": "movies-app-new",
+  "name": "movies-app",
   "version": "1.0.0",
-  "description": "New version of my movies app.",
+  "description": "A simple movies app.",
   "main": "server.js",
   "repository": "https://github.com/claudiorivera/",
   "author": "Claudio Rivera <me@claudiorivera.com>",
