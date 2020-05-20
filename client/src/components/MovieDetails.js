@@ -34,7 +34,11 @@ export const MovieDetails = ({ movieId }) => {
   }, [movieId]);
 
   if (movieDetails.isFetching) {
-    return <CircularProgress />;
+    return (
+      <Box display="flex" justifyContent="center" p={1}>
+        <CircularProgress />
+      </Box>
+    );
   }
   return (
     <Box display="flex" justifyContent="center" p={1}>
