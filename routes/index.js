@@ -1,6 +1,6 @@
 // ./routes/index.js
-const items = require("./items");
+const movies = require("./movies");
 
 module.exports = (app) => {
-  app.use("/items", items);
+  app.use("/movies", movies);
 };

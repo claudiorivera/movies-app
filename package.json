@@ -1,7 +1,7 @@
 {
-  "name": "pern-template",
+  "name": "movies-app-new",
   "version": "1.0.0",
-  "description": "PERN Template.",
+  "description": "New version of my movies app.",
   "main": "server.js",
   "repository": "https://github.com/claudiorivera/",
   "author": "Claudio Rivera <me@claudiorivera.com>",
