@@ -59,10 +59,10 @@ export const MovieDetails = ({ movieId }) => {
             flexWrap="wrap"
             flexDirection="row"
             justifyContent="center"
-            mt={1}
+            m={1}
           >
             {movieDetails.genres.map((genre, index) => (
-              <Box p={0.5} key={index}>
+              <Box p={1} key={index}>
                 <Chip label={genre} />
               </Box>
             ))}

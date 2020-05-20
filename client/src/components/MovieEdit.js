@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Box,
-  Card,
-  CardMedia,
-  CardContent,
-  Chip,
-  CircularProgress,
-  Typography,
-  CardActions,
-  Button,
+  // Card,
+  // CardMedia,
+  // CardContent,
+  // Chip,
+  // CircularProgress,
+  // Typography,
+  // CardActions,
+  // Button,
 } from "@material-ui/core";
-import { Link } from "@reach/router";
+// import { Link } from "@reach/router";
 
 export const MovieEdit = ({ movieId }) => {
   return (

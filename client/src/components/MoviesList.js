@@ -22,7 +22,7 @@ export const MoviesList = () => {
       setAllMovies(movies);
       setIsFetching(false);
     };
-    // Call the async function
+    // Call the async function once on render
     getAllMovies();
   }, []);
 
