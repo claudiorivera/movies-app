@@ -5,7 +5,7 @@ const router = new Router();
 // Get all movies
 router.get("/", async (req, res) => {
   try {
-    const { rows: movies } = await db.query("SELECT * FROM movies");
+    const { rows: movies } = await db.query("SELECT * FROM movies ORDER BY id");
     res.status(200).send(movies);
   } catch (error) {
     res.status(400).send(error);

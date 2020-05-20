@@ -13,13 +13,13 @@ import {
 import { Link } from "@reach/router";
 
 export const MovieDetails = ({ movieId }) => {
-  const [movieDetails, setMovieDetails] = useState({
-    id: movieId,
-    isFetching: true,
-  });
+  const [movieDetails, setMovieDetails] = useState({});
+  const [isFetching, setIsFetching] = useState(true);
+
   useEffect(() => {
+    // Async function
     const getMovieDetails = async (id) => {
-      setMovieDetails({ isFetching: true });
+      setIsFetching(true);
       // https://stackoverflow.com/questions/37269808/react-js-uncaught-in-promise-syntaxerror-unexpected-token-in-json-at-posit
       const response = await fetch(`/movies/${id}`, {
         headers: {
@@ -28,19 +28,18 @@ export const MovieDetails = ({ movieId }) => {
         },
       });
       const movie = await response.json();
-      setMovieDetails({ ...movie, isFetching: false });
+      setMovieDetails(movie);
+      setIsFetching(false);
     };
+    // Call the async function
     getMovieDetails(Number(movieId));
   }, [movieId]);
 
-  if (movieDetails.isFetching) {
-    return (
-      <Box display="flex" justifyContent="center" p={1}>
-        <CircularProgress />
-      </Box>
-    );
-  }
-  return (
+  return isFetching ? (
+    <Box display="flex" justifyContent="center" p={1}>
+      <CircularProgress />
+    </Box>
+  ) : (
     <Box display="flex" justifyContent="center" p={1}>
       <Card style={{ maxWidth: 500, marginBottom: "2rem" }}>
         <CardMedia
@@ -70,14 +69,17 @@ export const MovieDetails = ({ movieId }) => {
           </Box>
         </CardContent>
         <CardActions>
-          <Link style={{ textDecoration: "none" }} to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <Button size="small" color="primary">
               Back
             </Button>
           </Link>
-          <Button size="small" color="primary">
-            Edit
-          </Button>
+          {/* Reach Router relative links */}
+          <Link to="edit" style={{ textDecoration: "none" }}>
+            <Button size="small" color="primary">
+              Edit
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </Box>
