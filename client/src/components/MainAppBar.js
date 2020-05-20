@@ -3,14 +3,15 @@ import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography, InputBase } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import { Link } from "@reach/router";
 
 const useStyles = makeStyles((theme) => ({
-  title: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
-  },
+  // title: {
+  //   display: "none",
+  //   [theme.breakpoints.up("sm")]: {
+  //     display: "block",
+  //   },
+  // },
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -56,7 +57,9 @@ export const MainAppBar = () => {
     <AppBar position="sticky">
       <Toolbar>
         <Typography className={classes.title} variant="h6" noWrap>
-          Movies App
+          <Link style={{ textDecoration: "none", color: "white" }} to="/">
+            Movies App
+          </Link>
         </Typography>
         <div className={classes.search}>
           <div className={classes.searchIcon}>

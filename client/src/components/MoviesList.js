@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@material-ui/core";
-// import { MovieDetails } from "./MovieDetails";
+import { Link } from "@reach/router";
 
 export const MoviesList = () => {
   const [allMovies] = useState([
@@ -108,7 +108,9 @@ export const MoviesList = () => {
     <Box display="flex" flexWrap="wrap" justifyContent="center">
       {allMovies.map((movie) => (
         <Box p={0.5} key={movie.id}>
-          <img src={movie.poster} alt={movie.title} id={movie.id} />
+          <Link to={`details/${movie.id}`}>
+            <img src={movie.poster} alt={movie.title} />
+          </Link>
         </Box>
       ))}
     </Box>
