@@ -9,6 +9,7 @@ import {
   Typography,
   CardActions,
   Button,
+  TextField,
 } from "@material-ui/core";
 import { Link } from "@reach/router";
 
@@ -50,10 +51,38 @@ export const MovieDetails = ({ movieId }) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {movieDetails.title}
+            {isEditing ? (
+              <TextField
+                variant="outlined"
+                fullWidth
+                label={"Title"}
+                defaultValue={movieDetails.title}
+                onChange={(e) => {
+                  setMovieDetails({ ...movieDetails, title: e.target.value });
+                }}
+              />
+            ) : (
+              movieDetails.title
+            )}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {movieDetails.description}
+            {isEditing ? (
+              <TextField
+                variant="outlined"
+                fullWidth
+                multiline
+                label={"Description"}
+                defaultValue={movieDetails.description}
+                onChange={(e) => {
+                  setMovieDetails({
+                    ...movieDetails,
+                    description: e.target.value,
+                  });
+                }}
+              />
+            ) : (
+              movieDetails.description
+            )}
           </Typography>
           <Box
             display="flex"
@@ -76,11 +105,15 @@ export const MovieDetails = ({ movieId }) => {
             </Button>
           </Link>
           {/* Reach Router relative links */}
-          <Link to="edit" style={{ textDecoration: "none" }}>
-            <Button size="small" color="primary">
-              Edit
-            </Button>
-          </Link>
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => {
+              setIsEditing(!isEditing);
+            }}
+          >
+            {isEditing ? <>Save</> : <>Edit</>}
+          </Button>
         </CardActions>
       </Card>
     </Box>
