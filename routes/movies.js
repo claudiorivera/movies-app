@@ -32,4 +32,21 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// Update movie by id
+router.put("/:id", async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      `
+        update movies
+        set title = '${req.body.title}', description = '${req.body.description}'
+        WHERE id = ${req.params.id}
+        returning *;
+      `
+    );
+    res.status(200).send(rows[0]);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 module.exports = router;

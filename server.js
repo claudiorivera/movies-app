@@ -7,8 +7,6 @@ const PORT = process.env.PORT || 5000;
 
 // Instantiate Express
 const app = express();
-const mountRoutes = require("./routes");
-mountRoutes(app);
 
 // Middleware
 app.use(express.json());
