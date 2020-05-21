@@ -15,6 +15,7 @@ import { Link } from "@reach/router";
 export const MovieDetails = ({ movieId }) => {
   const [movieDetails, setMovieDetails] = useState({});
   const [isFetching, setIsFetching] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     // Async function
@@ -41,9 +42,9 @@ export const MovieDetails = ({ movieId }) => {
     </Box>
   ) : (
     <Box display="flex" justifyContent="center" p={1}>
-      <Card style={{ maxWidth: 500, marginBottom: "2rem" }}>
+      <Card style={{ maxWidth: 330, marginBottom: "2rem" }}>
         <CardMedia
-          style={{ height: 350 }}
+          style={{ height: 500 }}
           image={movieDetails.poster}
           title={movieDetails.title}
         />
