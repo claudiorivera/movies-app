@@ -34,7 +34,7 @@ export const MovieDetails = ({ movieId }) => {
       setIsFetching(false);
     };
     // Call the async function
-    getMovieDetails(Number(movieId));
+    getMovieDetails(parseInt(movieId));
   }, [movieId]);
 
   return isFetching ? (
