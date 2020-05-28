@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "description": "A simple movies app.",
   "main": "server.js",
-  "repository": "https://github.com/claudiorivera/",
+  "repository": "https://github.com/claudiorivera/movies-app",
   "author": "Claudio Rivera <me@claudiorivera.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
     "start": "node server",
+    "build": "yarn run client-install && yarn --cwd client run build",
     "client-install": "cd client && yarn",
-    "client": "yarn --cwd client start",
-    "server": "nodemon server --ignore client",
-    "dev": "concurrently --names 'SERVER,CLIENT' -c 'bgBlue.bold,bgMagenta.bold' 'yarn run server' 'yarn run client'",
-    "heroku-postbuild": "yarn run client-install && yarn --cwd client run build"
+    "client-start": "yarn --cwd client start",
+    "server-start": "nodemon server --ignore client",
+    "dev": "concurrently --names 'SERVER,CLIENT' -c 'bgBlue.bold,bgMagenta.bold' 'yarn run server-start' 'yarn run client-start'"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
@@ -26,6 +26,7 @@
     "pg": "^8.2.1"
   },
   "engines": {
-    "node": "14.x"
+    "node": "14.x",
+    "yarn": "1.x"
   }
 }

@@ -10,16 +10,15 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client", "build")));
 
 // Router
 const movies = require("./routes/movies");
 app.use("/movies", movies);
 
-// https://coursework.vschool.io/deploying-mern-with-heroku/
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+// Serve client/build if we're in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client", "build")));
+}
 
 // Start server
 app.listen(PORT, () => {
