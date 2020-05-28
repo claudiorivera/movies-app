@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server",
     "build": "yarn run client-install && yarn --cwd client run build",
-    "client-install": "cd client && yarn",
+    "client-install": "yarn --cwd client",
     "client-start": "yarn --cwd client start",
     "server-start": "nodemon server --ignore client",
     "dev": "concurrently --names 'SERVER,CLIENT' -c 'bgBlue.bold,bgMagenta.bold' 'yarn run server-start' 'yarn run client-start'"
