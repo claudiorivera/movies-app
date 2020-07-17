@@ -35,7 +35,7 @@ export const MoviesList = () => {
       {allMovies.map((movie) => (
         <Box p={1} key={movie.id}>
           <Link to={`movies/${movie.id}`}>
-            <img src={movie.poster} alt={movie.title} />
+            <img src={movie.poster} alt={movie.title} height="300px" />
           </Link>
         </Box>
       ))}
