@@ -22,13 +22,7 @@ export const MovieDetails = ({ movieId }) => {
     // Async function
     const getMovieDetails = async (id) => {
       setIsFetching(true);
-      // https://stackoverflow.com/questions/37269808/react-js-uncaught-in-promise-syntaxerror-unexpected-token-in-json-at-posit
-      const response = await fetch(`/movies/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
+      const response = await fetch(`/movies/${id}`);
       const movie = await response.json();
       setMovieDetails(movie);
       setIsFetching(false);
