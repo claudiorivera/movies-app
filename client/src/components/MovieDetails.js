@@ -9,14 +9,12 @@ import {
   Typography,
   CardActions,
   Button,
-  TextField,
 } from "@material-ui/core";
 import { Link } from "@reach/router";
 
 export const MovieDetails = ({ movieId }) => {
   const [movieDetails, setMovieDetails] = useState({});
   const [isFetching, setIsFetching] = useState(true);
-  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     // Async function
@@ -45,38 +43,10 @@ export const MovieDetails = ({ movieId }) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {isEditing ? (
-              <TextField
-                variant="outlined"
-                fullWidth
-                label={"Title"}
-                defaultValue={movieDetails.title}
-                onChange={(e) => {
-                  setMovieDetails({ ...movieDetails, title: e.target.value });
-                }}
-              />
-            ) : (
-              movieDetails.title
-            )}
+            {movieDetails.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {isEditing ? (
-              <TextField
-                variant="outlined"
-                fullWidth
-                multiline
-                label={"Description"}
-                defaultValue={movieDetails.description}
-                onChange={(e) => {
-                  setMovieDetails({
-                    ...movieDetails,
-                    description: e.target.value,
-                  });
-                }}
-              />
-            ) : (
-              movieDetails.description
-            )}
+            {movieDetails.description}
           </Typography>
           <Box
             display="flex"
@@ -98,16 +68,6 @@ export const MovieDetails = ({ movieId }) => {
               Back
             </Button>
           </Link>
-          {/* Reach Router relative links */}
-          <Button
-            size="small"
-            color="primary"
-            onClick={() => {
-              setIsEditing(!isEditing);
-            }}
-          >
-            {isEditing ? <>Save</> : <>Edit</>}
-          </Button>
         </CardActions>
       </Card>
     </Box>
