@@ -16,17 +16,17 @@
     "dev": "concurrently --names 'SERVER,CLIENT' -c 'bgBlue.bold,bgMagenta.bold' 'yarn run server-start' 'yarn run client-start'"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-promise-router": "^3.0.3",
-    "pg": "^8.2.1"
+    "express-promise-router": "^4.0.1",
+    "pg": "^8.4.2"
   },
   "engines": {
-    "node": "14.x",
+    "node": "15.x",
     "yarn": "1.x"
   }
 }
