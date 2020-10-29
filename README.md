@@ -16,4 +16,4 @@ Create a `.env` file with a Postgres `DB_URI=` connection string.
 
 # Dev
 
-`yarn run dev`
+`yarn dev`
